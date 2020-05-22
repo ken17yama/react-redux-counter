@@ -1,26 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { useDispatch, useSelector } from "react-redux";
+import counterModule from "./modules/counterModule";
 
-function App() {
+const App = () => {
+  // dispatch の取得
+  const dispatch = useDispatch();
+  // state の取得
+  const counter = useSelector(state => state.counter);
+
+  const increment = () => dispatch(counterModule.actions.increment());
+  const decrement = () => dispatch(counterModule.actions.decrement());
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <p>{counter}</p>
+      <button onClick={increment}>increment</button>
+      <button onClick={decrement}>decrement</button>
     </div>
   );
-}
+};
 
 export default App;
