@@ -5,7 +5,10 @@ const counterModule = createSlice({
 	name: "counter",
 	initialState: 0,
 	reducers: {
-		increment: (state, action) => state + 1,
+		increment: (state, action) => {
+			console.log(action.payload)
+			return state + 1
+		},
 		decrement: (state, action) => state - 1
 	}
 });

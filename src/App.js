@@ -9,7 +9,7 @@ const App = () => {
   // state の取得
   const counter = useSelector(state => state.counter);
 
-  const increment = () => dispatch(counterModule.actions.increment());
+  const increment = () => dispatch(counterModule.actions.increment(3));
   const decrement = () => dispatch(counterModule.actions.decrement());
 
   return (
